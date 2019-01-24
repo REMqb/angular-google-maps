@@ -5,8 +5,6 @@ import {AgmKmlLayer} from './../../directives/kml-layer';
 import {GoogleMapsAPIWrapper} from './../google-maps-api-wrapper';
 import {KmlLayer, KmlLayerOptions} from './../google-maps-types';
 
-declare var google: any;
-
 /**
  * Manages all KML Layers for a Google Map instance.
  */

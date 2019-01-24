@@ -2,7 +2,7 @@ import {Directive, EventEmitter, OnChanges, OnDestroy, OnInit, SimpleChange, Inp
 import {Subscription} from 'rxjs';
 
 import {MouseEvent} from '../map-types';
-import {LatLng, LatLngBounds, LatLngLiteral} from '../services/google-maps-types';
+import {LatLng, LatLngBounds, LatLngLiteral, StrokePosition} from '../services/google-maps-types';
 import {MouseEvent as MapMouseEvent} from '../services/google-maps-types';
 import {CircleManager} from '../services/managers/circle-manager';
 
@@ -66,7 +66,7 @@ export class AgmCircle implements OnInit, OnChanges, OnDestroy {
    * The stroke position. Defaults to CENTER.
    * This property is not supported on Internet Explorer 8 and earlier.
    */
-  @Input() strokePosition: 'CENTER'|'INSIDE'|'OUTSIDE' = 'CENTER';
+  @Input() strokePosition: StrokePosition = google.maps.StrokePosition.CENTER;
 
   /**
    * The stroke width in pixels.

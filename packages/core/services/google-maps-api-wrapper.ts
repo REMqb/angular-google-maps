@@ -6,9 +6,6 @@ import {Polyline} from './google-maps-types';
 import {PolylineOptions} from './google-maps-types';
 import {MapsAPILoader} from './maps-api-loader/maps-api-loader';
 
-// todo: add types for this
-declare var google: any;
-
 /**
  * Wrapper class that handles the communication with the Google Maps Javascript
  * API v3
@@ -104,7 +101,7 @@ export class GoogleMapsAPIWrapper {
   /**
    * Determines if given coordinates are insite a Polygon path.
    */
-  containsLocation(latLng: mapTypes.LatLngLiteral, polygon: mapTypes.Polygon): Promise<boolean> {
+  containsLocation(latLng: mapTypes.LatLng, polygon: mapTypes.Polygon): boolean {
     return google.maps.geometry.poly.containsLocation(latLng, polygon);
   }
 
@@ -132,7 +129,7 @@ export class GoogleMapsAPIWrapper {
     return this._map.then((map: mapTypes.GoogleMap) => map.getBounds());
   }
 
-  getMapTypeId(): Promise<mapTypes.MapTypeId> {
+  getMapTypeId(): Promise<mapTypes.MapTypeId | string> {
     return this._map.then((map: mapTypes.GoogleMap) => map.getMapTypeId());
   }
 

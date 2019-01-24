@@ -17,8 +17,6 @@ import {KmlLayerManager} from './../services/managers/kml-layer-manager';
 import {DataLayerManager} from './../services/managers/data-layer-manager';
 import {FitBoundsService} from '../services/fit-bounds';
 
-declare var google: any;
-
 /**
  * AgmMap renders a Google Map.
  * **Important note**: To be able see a map in the browser, you have to define a height for the
@@ -241,7 +239,7 @@ export class AgmMap implements OnChanges, OnInit, OnDestroy {
   /**
    * The map mapTypeId. Defaults to 'roadmap'.
    */
-  @Input() mapTypeId: 'roadmap'|'hybrid'|'satellite'|'terrain'|string = 'roadmap';
+  @Input() mapTypeId: MapTypeId = 'roadmap';
 
   /**
    * When false, map icons are not clickable. A map icon represents a point of interest,
@@ -361,7 +359,7 @@ export class AgmMap implements OnChanges, OnInit, OnDestroy {
       rotateControlOptions: this.rotateControlOptions,
       fullscreenControl: this.fullscreenControl,
       fullscreenControlOptions: this.fullscreenControlOptions,
-      mapTypeId: this.mapTypeId,
+      mapTypeId: <google.maps.MapTypeId>this.mapTypeId,
       clickableIcons: this.clickableIcons,
       gestureHandling: this.gestureHandling
     })

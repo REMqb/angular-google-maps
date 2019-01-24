@@ -5,8 +5,6 @@ import { AgmDataLayer } from './../../directives/data-layer';
 import { GoogleMapsAPIWrapper } from './../google-maps-api-wrapper';
 import { Data, DataOptions, Feature } from './../google-maps-types';
 
-declare var google: any;
-
 /**
  * Manages all Data Layers for a Google Map instance.
  */
@@ -26,7 +24,7 @@ export class DataLayerManager {
     })
     .then(d => {
       if (layer.geoJson) {
-        this.getDataFeatures(d, layer.geoJson).then(features => d.features = features);
+        this.getDataFeatures(d, layer.geoJson).then(features => (<{features: Feature[]}><any>d).features = features);
       }
       return d;
     });
@@ -45,12 +43,12 @@ export class DataLayerManager {
       l.forEach(function (feature: Feature) {
         l.remove(feature);
 
-        var index = l.features.indexOf(feature, 0);
+        var index = (<{features: Feature[]}><any>l).features.indexOf(feature, 0);
         if (index > -1) {
-          l.features.splice(index, 1);
+          (<{features: Feature[]}><any>l).features.splice(index, 1);
         }
       });
-      this.getDataFeatures(l, geoJson).then(features => l.features = features);
+      this.getDataFeatures(l, geoJson).then(features => (<{features: Feature[]}><any>l).features = features);
     });
   }
 

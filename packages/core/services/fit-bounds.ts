@@ -11,8 +11,6 @@ import {
 import { LatLng, LatLngBounds, LatLngLiteral } from './google-maps-types';
 import { MapsAPILoader } from './maps-api-loader/maps-api-loader';
 
-declare var google: any;
-
 export interface FitBoundsDetails {
   latLng: LatLng | LatLngLiteral;
 }

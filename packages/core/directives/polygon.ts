@@ -106,7 +106,8 @@ export class AgmPolygon implements OnDestroy, OnChanges, AfterContentInit {
    * Inserting or removing LatLngs from the Array will automatically update
    * the polygon on the map.
    */
-  @Input() paths: Array<LatLng|LatLngLiteral>|Array<Array<LatLng|LatLngLiteral>> = [];
+  @Input() paths?: google.maps.MVCArray<google.maps.MVCArray<LatLng>>|google.maps.MVCArray<LatLng>|LatLng[][]|
+    LatLngLiteral[][]|LatLng[]|LatLngLiteral[] = [];
 
   /**
    * The stroke color. All CSS3 colors are supported except for extended

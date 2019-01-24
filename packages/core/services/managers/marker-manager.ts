@@ -6,8 +6,6 @@ import {AgmMarker} from './../../directives/marker';
 import {GoogleMapsAPIWrapper} from './../google-maps-api-wrapper';
 import {Marker} from './../google-maps-types';
 
-declare var google: any;
-
 @Injectable()
 export class MarkerManager {
   protected _markers: Map<AgmMarker, Promise<Marker>> =

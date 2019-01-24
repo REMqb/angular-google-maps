@@ -28,7 +28,7 @@ export class RectangleManager {
       fillOpacity: rectangle.fillOpacity,
       strokeColor: rectangle.strokeColor,
       strokeOpacity: rectangle.strokeOpacity,
-      strokePosition: rectangle.strokePosition,
+      strokePosition: <google.maps.StrokePosition>rectangle.strokePosition,
       strokeWeight: rectangle.strokeWeight,
       visible: rectangle.visible,
       zIndex: rectangle.zIndex
